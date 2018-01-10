@@ -17,7 +17,7 @@ from math import sqrt, pi, exp
 
 # Define new function ngauss with two parameters
 def ngauss(x, par):  
-    return 1/(par[1]*sqrt(2*pi))*exp(-1/2*((x[0]-par[0])/par[1])**2)
+    return 1./(par[1]*sqrt(2*pi))*exp(-1./2*((x[0]-par[0])/par[1])**2)
 
 
 
@@ -35,7 +35,7 @@ def PlotGauss():
   # Version 2
   # Create a new one-dimensional function myng2 in the limits 0 ... 10
   # with the two parameters [0] and [1] 
-  myng2 = TF1("myng2","1/([1]*sqrt(2*pi))*exp(-1/2*((x-[0])/[1])**2)",0,10)
+  myng2 = TF1("myng2","1./([1]*sqrt(2*pi))*exp(-1./2*((x-[0])/[1])**2)",0,10)
 
   # Set the corresponding mean and sigma to 5.0 and 1.5
   myng2.SetParameter(0,5.)
@@ -44,10 +44,10 @@ def PlotGauss():
   
   # Create a new canvas
   c1 = TCanvas("c1","c1",2*700,2*500)
-  #c1.Divide(2,2)
+  c1.Divide(2,2)
   
   # Goto first pad and draw function version 1
-  #c1.cd(1)
+  c1.cd(1)
   myng1.SetTitle("Normalverteilung Variante 1")
   myng1.Draw()
   
@@ -58,10 +58,10 @@ def PlotGauss():
   
   # Goto third pad and draw derivative of version 1
   c1.cd(3)
-  myng1.DrawDerivative()
+  myng2.DrawDerivative()
   
   # Goto fourth pad and draw integral of version 2
-  c1.cd() 
+  c1.cd(4) 
   myng2.DrawIntegral()
   raw_input('Press <ret> to end -> ')
 
