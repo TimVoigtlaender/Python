@@ -55,7 +55,7 @@ if __name__ == "__main__":
   x = np.linspace(xmn, xmx, 100)
   mxy = fPoisson(lam,lam)*1.1
   axd.set_ylim(0., mxy)
-  axd.plot(x, fPoisson(x,lam), 'r-', label='Normalverteilung')   
+  axd.plot(x, fPoisson(x,lam), 'r-', label='Poissonverteilung')   
 #     make plot nicer:
   axd.set_xlabel('m') # axis labels
   axd.set_ylabel('Dichte')
